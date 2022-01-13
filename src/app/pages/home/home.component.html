@@ -1,0 +1,38 @@
+<div class="box">
+  <div class="container">
+  
+    <form class="login-form">
+      <div class="person-icon">
+        <mat-icon>
+            <span class="material-icons-outlined">account_circle</span>
+        </mat-icon>    
+      </div>
+      <div class="login-form-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="example@gmail.com" [formControl]="email">
+          <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required>
+          <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+          <button class="password-icon" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-checkbox [(ngModel)]="checked" class="remember-me">Remember me</mat-checkbox>
+        <a href="" class="forgot-password-link">Forgot password ?</a>
+      </div>
+      <button class="login-btn">Login</button>
+
+  
+    </form>
+  
+  </div>
+    
+  
+</div>
